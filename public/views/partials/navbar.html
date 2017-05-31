@@ -1,100 +1,4 @@
-<!-- <div class="container">
-
-  <div class="header clearfix" ng-controller="LoginController as vm"> -->
-<!-- <div class="logo-section">
-      <img src="/images/logo.png" alt="logo" id="logo">
-    </div> -->
-
-<!-- <nav>
-      {{currentUser.name}}
-      <ul class="nav nav-pills pull-right">
-
-        <div ng-hide="currentUser">
-          <a href="#!/login"><span class="glyphicon glyphicon-log-out"></span>   Login          </a>
-
-          <a href="#!/register"><span class="glyphicon glyphicon-modal-window"> </span> Register </a>
-        </div>
-
-        <div ng-hide="!currentUser">
-          <a href="#!/dashboard"><span class="glyphicon glyphicon-tasks" ></span> Dashboard</a>
-          <a href="" ng-click="vm.logout()"><span class="glyphicon glyphicon-log-out" ></span>Logout</a>
-          <br>
-          <div>
-            Login as: {{currentUser.name}}
-          </div>
-        </div>
-
-      </ul>
-    </nav>
-
-  </div>
-</div> -->
-
-<!-- <nav class="navbar navbar-standard navbar-fixed-top ">
-  <div class="container-fluid" ng-controller="LoginController as vm">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href=""></a>
-    </div>
-
-    <div ng-hide="currentUser">
-
-
-      <form id="signin" class="navbar-form navbar-right" role="form" ng-submit="vm.login()">
-
-        <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="username" type="text" class="form-control" name="username" value="" placeholder="User Name" ng-model="vm.formLogin.username" required>
-        </div>
-
-        <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password" ng-model="vm.formLogin.password" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary navbar-btn">Login</button>
-
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <div>
-          <span ng-if="error_msg" style="background: yellow">
-            {{error_msg}}
-          </span>
-
-        </div>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <a href="#!/register">
-            Register
-            </a>
-        </li>
-
-
-
-      </ul>
-    </div>
-
-
-    <div ng-hide="!currentUser">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#!/dashboard"> Dashboard</a></li>
-        <li><a type="submit" ng-click="vm.logout()" class="btn ">Logout</a></li>
-
-      </ul>
-    </div>
-
-</nav> -->
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top ">
   <div class="container-fluid" ng-controller="LoginController as vm">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -102,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=""><img ng-src="img/friends-group-big.png" alt=""></a>
+      <a class="navbar-brand animated flip" href=""><img ng-src="img/friends-group-big.png" alt=""></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">

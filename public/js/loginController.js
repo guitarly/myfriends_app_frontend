@@ -9,8 +9,8 @@
 
   function LoginController($http, $scope, $location, $rootScope, $window) {
 
-    // this.url = 'http://localhost:3000';
-    this.url = 'https://meandfriends.herokuapp.com/';
+    this.url = 'http://localhost:3000';
+    // this.url = 'https://meandfriends.herokuapp.com';
     // $rootScope.currentUser = {};
     var vm = this;
 
@@ -18,7 +18,6 @@
     // Login
     this.login = function() {
 
-      console.log(this.formLogin);
       vm.dataLoading = true;
 
       $http({
@@ -31,7 +30,6 @@
           }
         }
       }).then(function(response) {
-        console.log(response.data);
 
         if (response.data.status == 401) {
           console.log("response.data.", response.data.message);

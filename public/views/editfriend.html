@@ -131,18 +131,48 @@
 
 
       <div class="modal-footer">
+
+        <button type="submit" class="btn btn-info" data-target="#comfirmDelete" data-toggle="modal" value="Submit">Delete</button>
+
         <button type="submit" class="btn btn-info" ng-click="ctrl.submitEditFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
 
         <span ng-include="'./views/partials/dataloading.html'"></span>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
-
-
     </form>
+
+    <!-- <div ng-show="confirmToDelete"> -->
+    <div id="comfirmDelete" class="modal fade" role="dialog">
+      <div class="deact" style="margin-top: 30%; background-color: bisque;">
+        <h1>ARE YOU SURE?</h1>
+        <!-- <form ng-submit="vm.deleteUser(myFriend.id)"> -->
+        <input type="submit" value="YES" ng-click="ctrl.deleteFriend(myFriend.id)" />
+        <div ng-show="ctrl.dataLoading">
+          <span ng-include="'./views/partials/dataloading.html'"></span>
+        </div>
+        <input type="button" value="CANCEL" data-dismiss="modal" />
+        <!-- </form> -->
+      </div>
+    </div>
+    <!-- </div> -->
 
   </div>
 
 </div>
+<!--
+<div ng-if="confirmToDelete" class="modal">
+  <div id="comfirmDelete" class="modal fade" role="dialog">
+    <!-- <div class="close" ng-click="vm.modalToggle('deleteUser');">
+      <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+    </div> -->
+<!-- <div class="deact">
+      <h1>ARE YOU SURE?</h1> You will lose all your progress
+      <form ng-submit="vm.deleteUser(myFriend.id)">
+        <input type="submit" value="i'm sure" />
+      </form>
+    </div>
+  </div>
+</div>  -->
 <!-- <script type="text/javascript">
   $('#addFriend').on('show.bs.modal', function() {
     $('#form-add-friend').data('formValidation').resetForm(true);
