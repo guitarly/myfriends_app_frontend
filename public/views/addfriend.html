@@ -11,14 +11,14 @@
       <div class="form-group row">
         <label class="control-label col-sm-2" for="fullname">Full Name:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="ctrl.frienddata.name">
+          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="ctrl.frienddata.name" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="address">Address:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="ctrl.frienddata.address">
+          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="ctrl.frienddata.address" required>
         </div>
       </div>
 
@@ -26,14 +26,14 @@
         <label class="control-label col-sm-2" for="city">City:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="ctrl.frienddata.city">
+          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="ctrl.frienddata.city" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="state">State:</label>
         <div class="col-sm-10">
-          <select class="form-control" id="state" ng-model="ctrl.frienddata.state">
+          <select class="form-control" id="state" ng-model="ctrl.frienddata.state" required>
             <option value=""></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -107,7 +107,7 @@
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="zipcode">Zip Code:</label>
-        <div class="col-sm-10">
+        <div class="col-sm-10" required>
 
           <input class="form-control" type="number" id="zipcode" placeholder="Enter Zip Code" ng-model="ctrl.frienddata.zip_code">
         </div>

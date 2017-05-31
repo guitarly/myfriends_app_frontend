@@ -89,11 +89,46 @@
 
     }; // end submitEditFriend function
 
+
+    // Delete Friend
     this.deleteFriend = function(friendId) {
+
       console.log("confirmtoDelete", friendId);
       vm.dataLoading = true;
+      var userId = $rootScope.currentUser.id;
+      $http({
+        method: 'DELETE',
+        url: this.url + '/users/' + userId + '/friends/' + friendId,
+        data: {
+          friendId: friendId,
+          userId: userId
+        }
+      }).then(function(response) {
+        // retrieve all friends belongs to the user
+        var userId = $rootScope.currentUser.id;
+        $http({
+          method: 'GET',
+          url: this.url + '/users/' + userId + '/friends'
+        }).then(function(response) {
+          if (response.data.status == 401) {
+            $rootScope.error_msg = "Error - can't retrieve friends";
+            vm.dataLoading = false;
+          } else {
+            $window.localStorage.removeItem('friends');
+            $rootScope.friends = response.data;
+            $window.localStorage.setItem('friends', JSON.stringify(response.data));
 
-    }
+            vm.dataLoading = false;
+            this.getGoogleMap();
+            // $rootScope.loggedIn = true;
+            $location.path('/dashboard');
+          };
+
+        }.bind(this));
+      }.bind(this));
+
+
+    }; // End deleteFriend function
 
 
     // GET Maps for all Friends' Address
