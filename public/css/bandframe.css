@@ -202,3 +202,12 @@ h3 {
   letter-spacing: 3px;
   font-size: 25px;
 }
+
+#friend-quote1 {
+  font-size: 18px;
+  text-align: left;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  width: 300px;
+  color: white;
+}
