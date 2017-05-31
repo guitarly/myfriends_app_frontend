@@ -10,7 +10,8 @@
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    this.url = 'http://localhost:3000';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com/';
     var vm = this;
     this.submitNewFriend = function() {
       let userId = $rootScope.currentUser.id;
