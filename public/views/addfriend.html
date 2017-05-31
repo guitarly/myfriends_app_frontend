@@ -6,19 +6,19 @@
     <h4 class="modal-title">Add Friend</h4>
   </div>
   <div class="modal-body" ng-controller="FriendController as ctrl">
-    <form class="form-horizontal" id="form-add-friend" role="form">
+    <form class="form-horizontal" id="form-add-friend" role="form" ng-submit="vm.submitNewFriend()" name="form">
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="fullname">Full Name:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="ctrl.frienddata.name" required>
+          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="ctrl.frienddata.name" required ng-class="{ 'has-error': form.fullname.$dirty && form.fullname.$error.required }">
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="address">Address:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="ctrl.frienddata.address" required>
+          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="ctrl.frienddata.address" required ng-class="{ 'has-error': form.address.$dirty && form.address.$error.required }">
         </div>
       </div>
 
@@ -26,14 +26,14 @@
         <label class="control-label col-sm-2" for="city">City:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="ctrl.frienddata.city" required>
+          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="ctrl.frienddata.city" required ng-class="{ 'has-error': form.city.$dirty && form.city.$error.required }">
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="state">State:</label>
         <div class="col-sm-10">
-          <select class="form-control" id="state" ng-model="ctrl.frienddata.state" required>
+          <select class="form-control" id="state" ng-model="ctrl.frienddata.state" required ng-class="{ 'has-error': form.state.$dirty && form.state.$error.required }">
             <option value=""></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -109,7 +109,7 @@
         <label class="control-label col-sm-2" for="zipcode">Zip Code:</label>
         <div class="col-sm-10" required>
 
-          <input class="form-control" type="number" id="zipcode" placeholder="Enter Zip Code" ng-model="ctrl.frienddata.zip_code">
+          <input class="form-control" type="number" id="zipcode" placeholder="Enter Zip Code" ng-model="ctrl.frienddata.zip_code" ng-class="{ 'has-error': form.zipcode.$dirty && form.zipcode.$error.required }" required>
         </div>
       </div>
 
@@ -117,7 +117,7 @@
         <label class="control-label col-sm-2" for="zipcode">Phone#:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="tel" id="phone" placeholder="Enter Phone Number" ng-model="ctrl.frienddata.phone">
+          <input class="form-control" type="tel" id="phone" placeholder="Enter Phone Number" ng-model="ctrl.frienddata.phone" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
         </div>
       </div>
 
@@ -126,7 +126,7 @@
         <div class="col-sm-10">
           <!-- <input type="file" id="exampleInputFile"> -->
 
-          <input class="form-control" type="text" id="image" placeholder="Enter Image URL " ng-model="ctrl.frienddata.image">
+          <input class="form-control" type="text" id="image" placeholder="Enter Image URL " ng-model="ctrl.frienddata.image" ng-class="{ 'has-error': form.image.$dirty && form.image.$error.required }">
         </div>
       </div>
 
@@ -134,6 +134,7 @@
 
       <div class="modal-footer">
         <button type="submit" class="btn btn-info" ng-disabled="form.$invalid || vm.dataLoading" ng-click="ctrl.submitNewFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
+        <!-- <button type="submit" class="btn btn-info" ng-disabled="form.$invalid || vm.dataLoading" ng-click="ctrl.submitNewFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button> -->
 
         <span ng-include="'./views/partials/dataloading.html'"></span>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

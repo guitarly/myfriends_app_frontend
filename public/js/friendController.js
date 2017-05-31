@@ -10,8 +10,8 @@
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    this.url = 'http://localhost:3000';
-    // this.url = 'https://meandfriends.herokuapp.com';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
     this.submitNewFriend = function() {
       let userId = $rootScope.currentUser.id;
@@ -193,16 +193,19 @@
 
     }; // end getGoogleMap function
 
+    this.sendText = function() {
+      console.log("sendtext");
 
-    // this.init = function() {
-    //   if ($rootScope.retrieveGoogleMap) {
-    //     this.getGoogleMap();
-    //     $rootScope.retrieveGoogleMap = !$rootScope.retrieveGoogleMap;
-    //   };
-    //
-    // };
-    //
-    // this.init();
+
+      $http({
+        method: 'POST',
+        url: this.url + '/sendText'
+      }).then(function(response) {
+        console.log("send.....");
+
+      }.bind(this));
+
+    }; // end sendtext function
 
     $scope.sort = function(keyname) {
       $scope.sortKey = keyname; //set the sortKey to the param passed

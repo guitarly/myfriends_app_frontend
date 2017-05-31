@@ -6,18 +6,20 @@
     <h4 class="modal-title">Edit Friend</h4>
   </div>
   <div class="modal-body" ng-controller="FriendController as ctrl">
-    <form class="form-horizontal" id="form-edit-friend">
-      <div class="form-group row">
+
+    <form class="form-horizontal" id="form-edit-friend" name="form" ng-submit="ctrl.submitEditFriend()" >
+
+      <div class="form-group row" >
         <label class="control-label col-sm-2" for="fullname">Full Name:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="myFriend.name" value="{{myFriend.name}}" required>
+          <input class="form-control" type="text" id="fullname" placeholder="Enter the Full Name" ng-model="myFriend.name" value="{{myFriend.name}}" required ng-class="{ 'has-error': form.fullname.$dirty && form.fullname.$error.required }">
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="address">Address:</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="myFriend.address" value="{{myFriend.address}}" required>
+          <input class="form-control" type="text" id="address" placeholder="Enter address" ng-model="myFriend.address" value="{{myFriend.address}}" required ng-class="{ 'has-error': form.address.$dirty && form.address.$error.required }">
         </div>
       </div>
 
@@ -25,14 +27,14 @@
         <label class="control-label col-sm-2" for="city">City:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="myFriend.city" value="{{myFriend.city}}" required>
+          <input class="form-control" type="text" id="city" placeholder="Enter City" ng-model="myFriend.city" value="{{myFriend.city}}" required ng-class="{ 'has-error': form.city.$dirty && form.city.$error.required }">
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="state">State:</label>
         <div class="col-sm-10">
-          <select class="form-control" id="state" ng-model="myFriend.state" value="{{myFriend.state}}" required>
+          <select class="form-control" id="state" ng-model="myFriend.state" value="{{myFriend.state}}" required ng-class="{ 'has-error': form.state.$dirty && form.state.$error.required }">
             <option value=""></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -108,7 +110,7 @@
         <label class="control-label col-sm-2" for="zipcode">Zip Code:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="text" id="zipcode" placeholder="Enter Zip Code" ng-model="myFriend.zip_code" value="{{myFriend.zip_code}}" required>
+          <input class="form-control" type="text" id="zipcode" placeholder="Enter Zip Code" ng-model="myFriend.zip_code" value="{{myFriend.zip_code}}" required ng-class="{ 'has-error': form.zipcode.$dirty && form.zipcode.$error.required }">
         </div>
       </div>
 
@@ -116,7 +118,7 @@
         <label class="control-label col-sm-2" for="phone">Phone #:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="tel" id="phone" placeholder="Enter Phone Number" ng-model="myFriend.phone" value="{{myFriend.phone}}">
+          <input class="form-control" type="tel" id="phone" placeholder="Enter Phone Number" ng-model="myFriend.phone" value="{{myFriend.phone}}" >
         </div>
       </div>
 
@@ -124,7 +126,7 @@
         <label class="control-label col-sm-2" for="image">Image URL:</label>
         <div class="col-sm-10">
 
-          <input class="form-control" type="text" id="image" placeholder="Enter Image URL " ng-model="myFriend.image" value="{{myFriend.image}}">
+          <input class="form-control" type="text" id="image" placeholder="Enter Image URL " ng-model="myFriend.image" value="{{myFriend.image}}" >
         </div>
       </div>
 
@@ -134,12 +136,13 @@
 
         <button type="submit" class="btn btn-info" data-target="#comfirmDelete" data-toggle="modal" value="Submit">Delete</button>
 
-        <button type="submit" class="btn btn-info" ng-click="ctrl.submitEditFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
+        <button type="submit" class="btn btn-info" ng-disabled="form.$invalid || vm.dataLoading" ng-click="ctrl.submitEditFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
 
         <span ng-include="'./views/partials/dataloading.html'"></span>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </form>
+
 
     <!-- <div ng-show="confirmToDelete"> -->
     <div id="comfirmDelete" class="modal fade" role="dialog">
