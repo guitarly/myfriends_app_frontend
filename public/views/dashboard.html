@@ -1,0 +1,54 @@
+<section class="dashboard-page">
+
+
+
+  <h1>dashboard</h1>
+
+  <section class="friends-class" ng-controller="FriendController as ctrl" ng-init="ctrl.getGoogleMap()">
+    <!-- Modal Add Friend-->
+    <div id="addFriend" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <span ng-include="'./views/addfriend.html'"></span>
+      </div>
+    </div>
+    <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addFriend">Add Friend</button>
+    <div ng-show="ctrl.dataLoading">
+      <span ng-include="'./views/partials/dataloading.html'"></span>
+    </div> -->
+
+  </section>
+  <!--  start from here... -->
+  <div class="container-fluid text-center main-body-section">
+
+    <div class="row content ">
+
+      <div class="col-sm-5 sidenav div-allfriends">
+        <div ng-include="'./views/allFriends.html'"></div>
+      </div>
+
+      <!-- Google map section  -->
+      <div class="col-sm-7 text-left div-map">
+
+        <div ng-controller="FriendController">
+          <div id="map"></div>
+          <div id="repeat" ng-repeat="marker in markers track by $index | orderBy: 'name' ">
+            <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+              <!-- <label id="names">{{marker.title}}</label></a> -->
+          </div>
+        </div>
+
+
+        <!-- <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div> -->
+
+
+      </div>
+    </div>
+
+</section>

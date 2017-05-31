@@ -1,0 +1,92 @@
+<div class="bs-component" ng-controller="FriendController as ctrl">
+
+
+  <form class="form-inline">
+    <div class="form-group">
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addFriend">Add Friend</button>
+      <div ng-show="ctrl.dataLoading">
+        <span ng-include="'./views/partials/dataloading.html'"></span>
+      </div>
+
+      <label>Search:</label>
+      <input type="text" ng-model="searchText" class="form-control" placeholder="Search">
+    </div>
+  </form>
+
+
+  <table id="table-all" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th ng-click="sort('name')">Name
+          <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th ng-click="sort('fulladdress')">Address
+          <span class="glyphicon sort-icon" ng-show="sortKey=='fulladdress'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th ng-click="sort('phone')">Phone
+          <span class="glyphicon sort-icon" ng-show="sortKey=='phone'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="friend in friends | filter:searchText | orderBy:sortKey:reverse ">
+        <td><a href="" ng-click="ctrl.showFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
+        <td><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
+        <td>{{friend.phone}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- Edit friend -->
+<!-- Modal Add Friend-->
+<div id="EditFriend" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <span ng-include="'./views/editfriend.html'"></span>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- </div> -->
+
+<!--
+<div class=" row table-responsive ">
+
+  <table id="table-all" class="display table-bordered" cellspacing="0 " width="100% ">
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th>Address:</th>
+        <th>Phone:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="friend in friends">
+        <td>{{friend.name}}</td>
+        <td>{{friend.fulladdress}}</td>
+        <td>{{friend.phone}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript ">
+  $(document).ready(function() {
+    $('#table-all').DataTable({
+      "scrollY ": "200px ",
+      "scrollCollapse ": true,
+      "paging ": false
+    });
+
+
+  });
+</script> -->
