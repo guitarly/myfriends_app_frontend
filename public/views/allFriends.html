@@ -13,32 +13,33 @@
     </div>
   </form>
 
+  <div>
+    <table id="table-all" class="table table-bordered table-striped table-hover " cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th ng-click="sort('name')">Name
+            <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th ng-click="sort('fulladdress')">Address
+            <span class="glyphicon sort-icon" ng-show="sortKey=='fulladdress'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th ng-click="sort('phone')">Phone
+            <span class="glyphicon sort-icon" ng-show="sortKey=='phone'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
 
-  <table id="table-all" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
-    <thead>
-      <tr>
-        <th ng-click="sort('name')">Name
-          <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-        </th>
-        <th ng-click="sort('fulladdress')">Address
-          <span class="glyphicon sort-icon" ng-show="sortKey=='fulladdress'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-        </th>
-        <th ng-click="sort('phone')">Phone
-          <span class="glyphicon sort-icon" ng-show="sortKey=='phone'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-        </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="friend in friends | orderBy:sortKey:reverse ">
+          <td><a href="" ng-click="ctrl.showFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
+          <td><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
+          <td>{{friend.phone}}</td>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="friend in friends | filter:searchText | orderBy:sortKey:reverse ">
-        <td><a href="" ng-click="ctrl.showFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
-        <td><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
-        <td>{{friend.phone}}</td>
+        </tr>
 
-      </tr>
-
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- Edit friend -->

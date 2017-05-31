@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 
-const port = 3050;
+const port = 8000;
 
 // =============== MIDDLEWARE ===================
 app.use(express.static('public'));

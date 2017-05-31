@@ -6,7 +6,7 @@
     <h4 class="modal-title">Add Friend</h4>
   </div>
   <div class="modal-body" ng-controller="FriendController as ctrl">
-    <form class="form-horizontal" id="form-add-friend">
+    <form class="form-horizontal" id="form-add-friend" role="form">
 
       <div class="form-group row">
         <label class="control-label col-sm-2" for="fullname">Full Name:</label>
@@ -124,6 +124,7 @@
       <div class="form-group row">
         <label class="control-label col-sm-2" for="image">Image URL:</label>
         <div class="col-sm-10">
+          <!-- <input type="file" id="exampleInputFile"> -->
 
           <input class="form-control" type="text" id="image" placeholder="Enter Image URL " ng-model="ctrl.frienddata.image">
         </div>
@@ -132,7 +133,7 @@
 
 
       <div class="modal-footer">
-        <button type="submit" class="btn btn-info" ng-click="ctrl.submitNewFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
+        <button type="submit" class="btn btn-info" ng-disabled="form.$invalid || vm.dataLoading" ng-click="ctrl.submitNewFriend()" value="Submit" id="submit" data-dismiss="modal">Save</button>
 
         <span ng-include="'./views/partials/dataloading.html'"></span>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
