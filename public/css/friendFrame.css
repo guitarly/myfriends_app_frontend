@@ -49,7 +49,7 @@ video {
   width: 100%;
 }
 
-h3 {
+.explore-fr {
   color: #3cbc8d;
   z-index: 1;
   text-align: center;
@@ -63,6 +63,32 @@ h3 {
   letter-spacing: 3px;
   font-size: 25px;
 }
+
+/* .. */
+
+/*.video-header {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  &, video, .viewport-header {
+    @include coverer;
+  }
+  video {
+    background: brown;
+    object-fit: cover;
+  }
+  .viewport-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    opacity: var(--headerOpacity);
+    transform: scale(var(--headerScale));
+  }
+}*/
+/**/
+
 
 .navbar {
   margin-bottom: 0;
