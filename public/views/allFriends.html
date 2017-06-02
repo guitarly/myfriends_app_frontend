@@ -2,7 +2,7 @@
 
 
   <form class="form-inline">
-    <div class="form-group">
+    <div class="form-group" id="add-button">
       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addFriend">Add Friend</button>
       <div ng-show="ctrl.dataLoading">
         <span ng-include="'./views/partials/dataloading.html'"></span>
@@ -24,17 +24,32 @@
           <th ng-click="sort('fulladdress')">Address
             <span class="glyphicon sort-icon" ng-show="sortKey=='fulladdress'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
           </th>
-          <th ng-click="sort('phone')">Phone
+          <th ng-click="sort('phone')">Send Message
             <span class="glyphicon sort-icon" ng-show="sortKey=='phone'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
           </th>
 
         </tr>
       </thead>
-      <tbody>
+      <tbody id="display-allfriends">
+
         <tr ng-repeat="friend in friends | orderBy:sortKey:reverse ">
           <td><a href="" ng-click="ctrl.showFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
+
           <td><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
-          <td>{{friend.phone}}</td>
+
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Choose one
+              <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.sendEmail(friend)">Send Email</a></li>
+
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.sendText(friend)">Sent Text</a></li>
+
+                </ul>
+            </div>
+        </td>
 
         </tr>
 

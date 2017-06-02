@@ -10,8 +10,8 @@
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    // this.url = 'http://localhost:3000';
-    this.url = 'https://meandfriends.herokuapp.com';
+    this.url = 'http://localhost:3000';
+    // this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
     this.submitNewFriend = function() {
       let userId = $rootScope.currentUser.id;
@@ -193,16 +193,38 @@
 
     }; // end getGoogleMap function
 
-    this.sendText = function() {
+    // Send Email
+    this.sendEmail = function(friend) {
+      console.log(friend);
+      console.log("Send email");
+      $http({
+        method: 'POST',
+        url: this.url + '/sendEmail',
+        data: {
+          friend: friend
+        }
+      }).then(function(response) {
+        console.log("Done send.....email");
+
+      }.bind(this));
+
+
+    } // end sendEmail function
+
+    // Send Text
+    this.sendText = function(friend) {
       console.log("sendtext");
 
 
       $http({
         method: 'POST',
         url: this.url + '/sendText',
-        friend: $rootScope.currentUser
+        data: {
+          friend: friend
+        }
+
       }).then(function(response) {
-        console.log("send.....");
+        console.log("Done send.....text");
 
       }.bind(this));
 

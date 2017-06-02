@@ -181,7 +181,7 @@ textarea {
 
 .register-page {
   margin-top: 5%;
-  width: 50%;
+  width: 45%;
   height: 80%;
   border: 2px solid black;
   background: white;
@@ -217,4 +217,11 @@ h3 {
   border-radius: 15px;
   width: 300px;
   color: white;
+}
+#display-allfriends {
+  text-align: left;
+}
+
+#add-button {
+      display: flex;
 }

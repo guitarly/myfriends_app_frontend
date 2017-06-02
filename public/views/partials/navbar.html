@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top ">
+<nav class="navbar navbar-default navbar-fixed-top app-menu">
   <div class="container-fluid" ng-controller="LoginController as vm">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -14,7 +14,7 @@
 
         <li>
           <li ng-hide="currentUser">
-    
+
             <a href="" data-toggle="modal" data-target="#registerForm">REGISTER</a></li>
           <li ng-hide="!login_error_msg" style=" background: red">
             <a href=""> {{login_error_msg}}</a>
