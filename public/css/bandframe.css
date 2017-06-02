@@ -181,6 +181,13 @@ textarea {
 
 .register-page {
   margin-top: 5%;
+  width: 50%;
+  height: 80%;
+  border: 2px solid black;
+  background: white;
+  padding-bottom: 3%;
+  border: 2px solid deepskyblue;
+
 }
 
 .dashboard-page {

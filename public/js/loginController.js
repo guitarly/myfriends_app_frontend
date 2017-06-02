@@ -33,7 +33,7 @@
 
         if (response.data.status == 401) {
           console.log("response.data.", response.data.message);
-          $rootScope.error_msg = response.data.message;
+          $rootScope.login_error_msg = response.data.message;
           vm.dataLoading = false;
         } else {
           $rootScope.currentUser = response.data.user;

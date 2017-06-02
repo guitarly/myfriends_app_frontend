@@ -13,9 +13,11 @@
         <li><a href="#myPage">HOME</a></li>
 
         <li>
-          <li ng-hide="currentUser"><a href="#!/register">REGISTER</a></li>
-          <li ng-hide="!error_msg" style="background-color: yellow;">
-            <a href=""> {{error_msg}}</a>
+          <li ng-hide="currentUser">
+    
+            <a href="" data-toggle="modal" data-target="#registerForm">REGISTER</a></li>
+          <li ng-hide="!login_error_msg" style=" background: red">
+            <a href=""> {{login_error_msg}}</a>
           </li>
           <li ng-hide="currentUser">
             <form id="signin" class="navbar-form navbar-right" role="form" ng-submit="vm.login()">
