@@ -33,7 +33,7 @@
       <tbody id="display-allfriends">
 
         <tr ng-repeat="friend in friends | orderBy:sortKey:reverse ">
-          <td><a href="" ng-click="ctrl.showFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
+          <td><a href="" ng-click="ctrl.setFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
 
           <td><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
 
@@ -43,9 +43,9 @@
               <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.sendEmail(friend)">Send Email</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.setFriend(friend)"data-toggle="modal" data-target="#sendEmail">Send Email</a></li>
 
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.sendText(friend)">Sent Text</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="ctrl.setFriend(friend)">Sent Text</a></li>
 
                 </ul>
             </div>
@@ -63,5 +63,11 @@
 <div id="EditFriend" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
     <span ng-include="'./views/editfriend.html'"></span>
+  </div>
+</div>
+
+<div id="sendEmail" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <span ng-include="'./views/emailForm.html'"></span>
   </div>
 </div>

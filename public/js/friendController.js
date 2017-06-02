@@ -236,9 +236,9 @@
     };
 
 
-    this.showFriend = function(friend) {
+    this.setFriend = function(friend) {
       $rootScope.myFriend = friend;
-    }; // end showFriend function
+    }; // end setFriend function
 
 
     // show address on the google map
