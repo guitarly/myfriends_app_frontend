@@ -197,6 +197,8 @@
     this.sendEmail = function(friend) {
       console.log(friend);
       console.log("Send email");
+      friend.marker = null;
+        console.log(friend);
       $http({
         method: 'POST',
         url: this.url + '/sendEmail',
@@ -214,14 +216,13 @@
     // Send Text
     this.sendText = function(friend) {
       console.log("sendtext");
-
+      friend.marker = null;
+      friend.sender = $rootScope.currentUser.email;
 
       $http({
         method: 'POST',
         url: this.url + '/sendText',
-        data: {
-          friend: friend
-        }
+        data: friend
 
       }).then(function(response) {
         console.log("Done send.....text");

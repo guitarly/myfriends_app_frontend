@@ -72,7 +72,7 @@ button[type="reset"]    {
                         <div class="panel-heading" >
                             <h1>Send Email</h1>
                         </div> -->
-                    <form ng-submit="ctrl.sendEmail()" >
+                    <form ng-submit="ctrl.sendEmail(myFriend)" id="emailForm" >
                     <!-- <div class="panel-body">
                         <div class="form-group">
                             <div class="input-group">
@@ -85,6 +85,12 @@ button[type="reset"]    {
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
                                 <input type="email" name="InputEmail" placeholder="Email" class="form-control" required autofocus="autofocus" ng-model="myFriend.email" value="{{myFriend.email}}" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right blue"></i></span>
+                                <input type="text" name="InputSubject" placeholder="Enter a Subject" class="form-control" required autofocus="autofocus" ng-model="myFriend.subject">
                             </div>
                         </div>
                         <!-- <div class="form-group">
@@ -100,7 +106,7 @@ button[type="reset"]    {
                             </div>
                         </div>
                         <div class="col-sm-8 col-centered">
-                          <button type="submit" class="btn btn-info pull-center btn-primary">Send <span class="glyphicon glyphicon-send"></span></button>
+                          <button type="submit" class="btn btn-info pull-center btn-primary" value="Submit" id="submit" >Send <span class="glyphicon glyphicon-send"></span></button>
 
                           <button type="button" class="btn btn-info pull-right btn-warning" data-dismiss="modal">Cancel <span class="glyphicon glyphicon-remove "></span></button>
 
@@ -113,3 +119,10 @@ button[type="reset"]    {
         </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+  $('#emailForm').submit(function() {
+    $('#sendEmail').modal('hide');
+  });
+
+  </script>

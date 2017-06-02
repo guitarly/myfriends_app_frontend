@@ -225,3 +225,10 @@ h3 {
 #add-button {
       display: flex;
 }
+
+#logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
