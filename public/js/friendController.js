@@ -10,8 +10,8 @@
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    this.url = 'http://localhost:3000';
-    // this.url = 'https://meandfriends.herokuapp.com';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
     this.submitNewFriend = function() {
       let userId = $rootScope.currentUser.id;
@@ -155,7 +155,7 @@
         });
 
 
-        marker.content = '<IMG BORDER="0" width="80" ALIGN="Left" SRC="' + info.image + '"> <br>' + '<div class="infoWindowContent" id="myCtrl" ng-app="Myfriends_App" ng-controller="FriendController as ctrl" >' + '<br />' + info.fulladdress + ' ,<br/>' + info.phone + '<br /><button onclick="sendText()" id="demo">send text</button>' + '  </div>';
+        marker.content = '<IMG BORDER="0" width="80" ALIGN="Left" SRC="' + info.image + '"> <br>' + '<div class="infoWindowContent" id="myCtrl" ng-app="Myfriends_App" ng-controller="FriendController as ctrl" >' + '<br />' + info.fulladdress + ' ,<br/>' + info.phone + '<br />' + '  </div>';
 
         // marker.content = '<IMG BORDER="0" width="80" ALIGN="Left" SRC="' + info.image + '"> <br>' + '<div ng-app="Myfriends_App" ng-controller="FriendController as vm"><h2>' + marker.title + '</h2><input type="button" value="get" ng-click="vm.clickMe(' + info.name + ')"/>' + '<div class="infoWindowContent">' + info.fulladdress + '</div><div class="infoWindowContent">' + info.phone + '</div></div>';
 
@@ -198,7 +198,9 @@
       console.log(friend);
       console.log("Send email");
       friend.marker = null;
-        console.log(friend);
+      friend.sender = "batcan75@gmail.com";
+      // friend.sender = $rootScope.currentUser.email;
+
       $http({
         method: 'POST',
         url: this.url + '/sendEmail',
@@ -206,7 +208,7 @@
           friend: friend
         }
       }).then(function(response) {
-        console.log("Done send.....email");
+        console.log("Done sent.....email");
 
       }.bind(this));
 
@@ -217,15 +219,16 @@
     this.sendText = function(friend) {
       console.log("sendtext");
       friend.marker = null;
-      friend.sender = $rootScope.currentUser.email;
 
       $http({
         method: 'POST',
         url: this.url + '/sendText',
-        data: friend
+        data: {
+          friend: friend
+        }
 
       }).then(function(response) {
-        console.log("Done send.....text");
+        console.log("Done sent.....text");
 
       }.bind(this));
 

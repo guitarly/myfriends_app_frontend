@@ -9,8 +9,8 @@
 
   function LoginController($http, $scope, $location, $rootScope, $window) {
 
-    this.url = 'http://localhost:3000';
-    // this.url = 'https://meandfriends.herokuapp.com';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com';
     // $rootScope.currentUser = {};
     var vm = this;
 

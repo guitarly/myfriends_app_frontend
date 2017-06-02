@@ -1,0 +1,127 @@
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Lobster);
+/*panel heading*/
+h1 {
+    text-align:center;
+    font-size: 28px;
+    font-family: 'Lobster', cursive;
+}
+/*panel align center*/
+.col-centered{
+    float: none;
+    margin: 0 auto;
+    padding-top:5px;
+}
+/*property for the bootstrap panel*/
+.panel  {
+-webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.panel-default > .panel-heading {
+  color: #000 !important;
+  background: #80bfff; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #80bfff, #ffffff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #80bfff, #ffffff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #80bfff, #ffffff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #80bfff, #ffffff); /* Standard syntax */
+  border-color: #99ccff !important;
+  height:80px;
+}
+
+/*property for the HTML input placeholder*/
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+/*property for reset button*/
+button[type="reset"]    {
+    background-color:transparent;
+    border:1px solid black;
+}
+
+/*Glyphicon color*/
+.blue   {
+    color: #80bfff;
+}
+#email-img {
+  width: 150px;
+  heigh: 150px;
+  border: 2px solid black;
+  border-color: #99ccff
+}
+</style>
+
+<div class="modal-content col-sm-12 col-centered">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Send Text Message</h4>
+  </div>
+
+  <div class="modal-body" ng-controller="FriendController as ctrl">
+            <div class="row">
+            <div class="col-sm-3 col-left">
+              <img ng-src="{{myFriend.image}}" id="email-img" /><br />
+              <b>{{myFriend.name}} </b>
+            </div>
+                <div class="col-sm-8 col-centered">
+                    <!-- <div class="panel panel-default">
+                        <div class="panel-heading" >
+                            <h1>Send Email</h1>
+                        </div> -->
+                    <form ng-submit="ctrl.sendText(myFriend)" id="textForm" >
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
+                                <input type="text" name="InputPhone" placeholder="Phone Numbers" class="form-control" required autofocus="autofocus" ng-model="myFriend.phone" value="{{myFriend.phone}}" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right blue"></i></span>
+                                <select class="form-control" id="phone_company" placeholder="Enter Phone Service Provider"
+                                ng-model="myFriend.phone_company" required ng-class="{ 'has-error': form.phone_company.$dirty && form.phone_company.$error.required }">
+                                  <option value=""></option>
+                                  <option value="at&t">AT&T</option>
+                                  <option value="cricket">Cricket</option>
+                                  <option value="nextel">Nextel</option>
+                                  <option value="sprint">Sprint PCS</option>
+                                  <option value="t-mobile">T-Mobile</option>
+                                  <option value="verizon">Verizon Wireless</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                                <textarea name="InputMessage" rows="3" class="form-control" type="text" required ng-model="myFriend.textMessage" maxlength="128" placeholder="Enter a message (Text message is 128 characters max.)"></textarea>
+                            </div>
+                            <h6>* Text message is 128 characters max.</h6>
+                        </div>
+                        
+                        <div class="col-sm-8 col-centered">
+                          <button type="submit" class="btn btn-info pull-center btn-primary" value="Submit" id="submit" >Send <span class="glyphicon glyphicon-send"></span></button>
+
+                          <button type="button" class="btn btn-info pull-right btn-warning" data-dismiss="modal">Cancel <span class="glyphicon glyphicon-remove "></span></button>
+
+                          <button type="reset" value="Reset" name="reset" class="btn pull-left">Reset <span class="glyphicon glyphicon-refresh"></span></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  $('#textForm').submit(function() {
+    $('#sendText').modal('hide');
+  });
+
+  </script>
