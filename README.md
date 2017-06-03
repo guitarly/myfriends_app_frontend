@@ -30,6 +30,7 @@
 9.  Sent Text - fill out all fields.  Must sure the phone number and phone carrier are correct.
 ![screencapture-localhost-8000-1496436031882](https://cloud.githubusercontent.com/assets/25845444/26744068/593e40a4-47b2-11e7-8d75-00501d890559.png)
 
+10. Click logout button to logout the application.
 ------------------
 Tools:
 - HTML
