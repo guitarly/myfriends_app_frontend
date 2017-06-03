@@ -32,17 +32,15 @@
       }).then(function(response) {
 
         if (response.data.status == 401) {
-          console.log("response.data.", response.data.message);
           $rootScope.login_error_msg = response.data.message;
           vm.dataLoading = false;
         } else {
           $rootScope.currentUser = response.data.user;
-          $rootScope.error_msg = null;
+          $rootScope.login_error_msg  = null;
           localStorage.setItem('token', JSON.stringify(response.data.token));
           $window.localStorage.setItem('user', JSON.stringify(response.data.user));
 
           $window.localStorage.setItem('friends', JSON.stringify(response.data.friends));
-
 
           $rootScope.friends = response.data.friends;
           // this.getGoogleMap();
@@ -75,15 +73,12 @@
       $rootScope.errorMessage = null;
       vm.dataLoading = true;
       console.log("Register");
-      console.log(this.registerFormData);
 
       $http({
         method: 'POST',
         url: this.url + '/users',
         data: this.registerFormData
       }).then(function(result) {
-
-        console.log(result.data);
 
         if (result.data.error) {
           $rootScope.error_msg = result.data.error;
@@ -99,9 +94,39 @@
     }; // end register function
 
     this.dashboard = function() {
-      console.log("hitDashboard");
       $location.path('/dashboard');
     }; // end dashoard function
+
+
+    // Edit user
+    this.editUser = function(data) {
+      let editFormData = data;
+      let userId = $rootScope.currentUser.id;
+      editFormData.id = userId;
+        $http({
+          method: 'PUT',
+            url: this.url + '/users/' + userId,
+            data: {
+              user: editFormData
+            }
+          }).then(function(response) {
+
+            $rootScope.currentUser = response.data.user;
+            $rootScope.error_msg = null;
+            $window.localStorage.setItem('user', JSON.stringify(response.data.user));
+
+          }.bind(this));
+
+
+    }; // End edit user
+
+    //Delete user
+    this.deleteUser = function() {
+      console.log("Delete .. user");
+
+    }; // End Delete user function
+
+
 
     // Get all users
     this.getUsers = function() {
