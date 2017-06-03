@@ -12,24 +12,24 @@
     {{error_msg}}
   </div> -->
 
-
+    <form name="form" ng-submit="vm.deleteUser(currentUser)" role="form" id="deleteForm">
     <div class="modal-body col-md-7 col-md-offset-3 col-center" >
       <h1>ARE YOU SURE?</h1>
 
-<br />
-        <button type="button" name="button" class="btn btn-danger pull-left" data-dismiss="modal" ng-click="vm.deleteFriend(currentUser)" >Delete</button>
+    <br />
+      <div class="form-actions">
+        <button type="submit" name="button" class="btn btn-danger pull-left" >Delete</button>
+      </div>
 
       <button type="button" name="button" class="btn btn-primary pull-right"  data-dismiss="modal">Cancel</button>
     </div>
-
-
 
     </div>
   </form>
 </div>
 
-<!-- <script type="text/javascript">
-$('#editForm').submit(function() {
-  $('#editUser').modal('hide');
+<script type="text/javascript">
+$('#deleteForm').submit(function() {
+  $('#deleteUser').modal('hide');
 });
-</script> -->
+</script>

@@ -9,8 +9,8 @@
 
   function LoginController($http, $scope, $location, $rootScope, $window) {
 
-    this.url = 'http://localhost:3000';
-    // this.url = 'https://meandfriends.herokuapp.com';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com';
     // $rootScope.currentUser = {};
     var vm = this;
 
@@ -121,8 +121,19 @@
     }; // End edit user
 
     //Delete user
-    this.deleteUser = function() {
+    this.deleteUser = function(user) {
       console.log("Delete .. user");
+      let userId = $rootScope.currentUser.id;
+      $http({
+        method: 'DELETE',
+          url: this.url + '/users/' + userId
+        }).then(function(response) {
+
+          console.log("delete successful");
+          this.logout();
+
+        }.bind(this));
+
 
     }; // End Delete user function
 
