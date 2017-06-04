@@ -13,7 +13,7 @@
   </div>
 
   <!-- <form name="form" role="form"> -->
-  <form name="form" ng-submit="vm.register()" role="form" id="registerForm">
+  <form name="form" ng-submit="vm.register()" role="form" id="submitResgister">
 
     <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
       <label for="name">Name</label>
@@ -40,7 +40,8 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" data-dismiss="modal" >Register
+
+      <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" value="Submit" id="submit" >Register
         <span ng-include="'./views/partials/dataloading.html'"></span>
       </button>
 
@@ -53,7 +54,7 @@
 
 
 <script type="text/javascript">
-$('#registerForm').submit(function() {
-  $('#register-page').modal('hide');
+$('#submitResgister').submit(function() {
+  $('#registerForm').modal('hide');
 });
 </script>

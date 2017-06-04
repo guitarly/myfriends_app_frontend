@@ -13,9 +13,6 @@
     this.url = 'https://meandfriends.herokuapp.com';
     // $rootScope.currentUser = {};
     var vm = this;
-    console.log("login controller");
-
-
     // Login
     this.login = function() {
 
@@ -80,7 +77,6 @@
         url: this.url + '/users',
         data: this.registerFormData
       }).then(function(result) {
-        console.log(result);
 
         if (result.data.error) {
           $rootScope.error_msg = result.data.error;
