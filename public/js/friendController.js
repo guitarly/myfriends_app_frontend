@@ -1,9 +1,8 @@
 (function() {
   'use strict';
 
-  const app = angular
-    .module('Myfriends_App');
-   app.controller('FriendController', FriendController);
+    angular.module('Myfriends_App')
+    .controller('FriendController', FriendController);
 
 
   FriendController.$inject = ['$http', '$scope', '$location', '$rootScope', '$window'];
@@ -12,6 +11,7 @@
 
 
     // this.url = 'http://localhost:3000';
+
     this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
     $scope.pageSize = 1;
