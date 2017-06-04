@@ -1,0 +1,105 @@
+body {
+  font-family: 'Alfa Slab One', cursive;
+  font-size:6rem;
+  background:#2c333a;
+  position: relative;
+}
+
+/*button{
+  text-align: center;
+  position: fixed;
+  margin: 10% 45%;
+  height: 4em;
+  width: 5em;
+}*/
+
+div {
+  width:80%;
+  margin:4rem auto;
+  text-align:center;
+  perspective: 800px;
+  position: relative;
+ }
+
+span {
+   font-family: 'Alfa Slab One', cursive;
+   display:inline-block;
+   margin-left: -20px;
+   color:#77c6bc;
+   transform-origin: 50% 70%;
+}
+
+
+span:nth-child(2n) {
+  color:#95b8cb;
+}
+
+span:nth-child(1) {
+  animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) both,
+             flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 2s forwards,
+             drop 4s 4s forwards;
+}
+
+span:nth-child(2) {
+  margin-right:30px;
+  animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) .2s both,
+             flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 2.2s forwards,
+             drop 4s 4.2s forwards;
+}
+
+span:nth-child(3) {
+  animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) .4s both,
+             flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 2.4s forwards,
+             drop 4s 4.4s forwards;
+}
+
+span:nth-child(4) {
+  animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) .6s both,
+             flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 2.6s forwards,
+             drop 4s 4.6s forwards;
+}
+
+span:nth-child(5) {
+    margin-right:30px;
+    animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) .8s both,
+               flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 2.8s forwards,
+               drop 4s 4.8s forwards;
+ }
+
+span:nth-child(6) {
+    animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) 1s both,
+               flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 3s forwards,
+               drop 4s 5s forwards;
+}
+
+span:nth-child(7) {
+    animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) 1.2s both,
+               flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 3.2s forwards,
+               drop 4s 5.2s forwards;
+}
+
+span:nth-child(8) {
+    animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) 1.4s both,
+               flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 3.4s forwards,
+               drop 4s 5.4s forwards;
+}
+
+span:nth-child(9) {
+    animation: flipUp 1s cubic-bezier(0.6, -10, 0.25, 1.55) 1.6s both,
+               flipDown .5s cubic-bezier(0.45, 0.03, 0.51, 0.95) 3.6s forwards,
+               drop 4s 5.6s forwards;
+}
+
+@keyframes flipUp {
+  from {transform: rotateX(90deg);}
+  to {transform: rotateX(0deg);}
+}
+
+@keyframes flipDown {
+  to {transform: rotateX(-180deg);}
+}
+
+@keyframes drop {
+  from {transform: rotateX(-180deg);}
+  to {transform: translateY(2000px);}
+}

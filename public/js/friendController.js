@@ -27,7 +27,9 @@
       console.log('Page changed to: ' + $scope.currentPage);
     };
 
-
+    $scope.reloadRoute = function() {
+       $window.location.reload();
+    };
 
 
     this.submitNewFriend = function() {
@@ -53,6 +55,7 @@
 
           vm.dataLoading = false;
           $scope.totalItems = $rootScope.friends.length;
+          $scope.reloadRoute();
           this.getGoogleMap();
           // $rootScope.loggedIn = true;
           $location.path('/dashboard');
@@ -137,6 +140,8 @@
             $window.localStorage.setItem('friends', JSON.stringify(response.data));
 
             vm.dataLoading = false;
+            $scope.totalItems = $rootScope.friends.length;
+            $scope.reloadRoute();
             this.getGoogleMap();
             // $rootScope.loggedIn = true;
             $location.path('/dashboard');

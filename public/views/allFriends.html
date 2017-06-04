@@ -64,9 +64,10 @@
       </tbody>
 
     </table>
-    <pagination  page="currentPage" total-items="totalItems", ng-model="currentPage", items-per-page="itemsPerPage" on-select-page="setPage(page)"> </pagination >
+    <pagination  page="currentPage" total-items="totalItems", ng-model="currentPage", items-per-page="itemsPerPage"
+    ng-change="setPage(page)" > </pagination >
   </div>
-
+<!-- on-select-page="setPage(page)" -->
 
 </div>
 
