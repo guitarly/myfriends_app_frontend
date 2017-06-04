@@ -3,6 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .content {
