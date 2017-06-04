@@ -191,7 +191,8 @@ textarea {
 }
 
 .dashboard-page {
-  margin-top: 9%;
+  /*margin-top: 9%;*/
+  padding-top: 80px;
   text-align: center;
 }
 
