@@ -12,8 +12,8 @@
     {{error_msg}}
   </div>
 
-  <form name="form" role="form">
-  <!-- <form name="form" ng-submit="vm.register()" role="form"> -->
+  <!-- <form name="form" role="form"> -->
+  <form name="form" ng-submit="vm.register()" role="form">
 
     <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
       <label for="name">Name</label>
@@ -40,22 +40,16 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" data-dismiss="modal"  ng-click="vm.register()" >Register
+      <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" data-dismiss="modal" >Register
         <span ng-include="'./views/partials/dataloading.html'"></span>
       </button>
 
       <button type="button" name="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
-
-      <button type="button" name="button" class="btn btn-primary"  ng-click="vm.register()">test</button>
 
 
     </div>
   </form>
 </div>
 
-<script type="text/javascript">
-$('#emailForm').submit(function() {
-  $('#sendEmail').modal('hide');
-});
 
 </script>
