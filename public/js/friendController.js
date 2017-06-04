@@ -11,8 +11,8 @@
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    this.url = 'http://localhost:3000';
-    // this.url = 'https://meandfriends.herokuapp.com';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
     $scope.pageSize = 1;
     $scope.currentPage = 1
