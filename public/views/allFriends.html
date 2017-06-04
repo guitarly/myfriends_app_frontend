@@ -37,7 +37,10 @@
       </thead>
       <tbody id="display-allfriends">
 
-        <tr ng-repeat="friend in friends | orderBy:sortKey:reverse | filter: {name: searchText}">
+        <tr ng-repeat="friend in friends | startFrom: ( currentPage - 1) * itemsPerPage | limitTo: itemsPerPage  | orderBy:sortKey:reverse | filter: {name: searchText}" >
+        <!-- <tr dir-paginate="friend in friends | itemsPerPage = 5 track by name "> -->
+        <!-- <tr ng-repeat="friend in friends |orderBy:sortKey:reverse | filter: {name: searchText}"> -->
+
           <td class="col-sm-3"><a href="" ng-click="ctrl.setFriend(friend)" data-toggle="modal" data-target="#EditFriend"> {{friend.name}}</a></td>
 
           <td class="col-sm-7"><a id="country_container" href="" ng-click="ctrl.showAddress($event, friend.marker)">{{friend.fulladdress}}</a></td>
@@ -59,8 +62,11 @@
         </tr>
 
       </tbody>
+
     </table>
+    <pagination  page="currentPage" total-items="totalItems", ng-model="currentPage", items-per-page="itemsPerPage" on-select-page="setPage(page)"> </pagination >
   </div>
+
 
 </div>
 

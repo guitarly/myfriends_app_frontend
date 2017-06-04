@@ -3,10 +3,15 @@
 
   // const app = angular.module('Myfriends_App', ['ngRoute', 'ngCookies']);
   angular
-    .module('Myfriends_App', ['ngRoute', 'ngCookies'])
+    .module('Myfriends_App', ['ngRoute', 'ngCookies','ui.bootstrap'])
     .config(config)
-    .run(run);
-
+    .run(run)
+    .filter('startFrom', function() {
+      return function(data,start) {
+        start = 0 + start;
+        return data.slice(start);
+      };
+    });;
 
 
   // ROUTES CONFIGURATION

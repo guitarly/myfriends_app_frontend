@@ -1,8 +1,10 @@
 <section class="dashboard-page">
 
 
+  <div id="user-title">
+    <h1>{{currentUser.name}}</h1>
+  </div>
 
-  <h1>{{currentUser.name}}</h1>
 
   <section class="friends-class" ng-controller="FriendController as ctrl" ng-init="ctrl.getGoogleMap()">
     <!-- Modal Add Friend-->

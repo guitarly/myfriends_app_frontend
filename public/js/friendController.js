@@ -1,18 +1,35 @@
 (function() {
   'use strict';
 
-  angular
-    .module('Myfriends_App')
-    .controller('FriendController', FriendController);
+  const app = angular
+    .module('Myfriends_App');
+   app.controller('FriendController', FriendController);
+
 
   FriendController.$inject = ['$http', '$scope', '$location', '$rootScope', '$window'];
 
   function FriendController($http, $scope, $location, $rootScope, $window) {
 
 
-    // this.url = 'http://localhost:3000';
-    this.url = 'https://meandfriends.herokuapp.com';
+    this.url = 'http://localhost:3000';
+    // this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
+    $scope.pageSize = 1;
+    $scope.currentPage = 1
+    $scope.itemsPerPage = 8
+    $scope.totalItems = $rootScope.friends.length;
+
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+    };
+
+    $scope.pageChanged = function() {
+      console.log('Page changed to: ' + $scope.currentPage);
+    };
+
+
+
+
     this.submitNewFriend = function() {
       let userId = $rootScope.currentUser.id;
       // this.frienddata.user_id = userId;
@@ -35,6 +52,7 @@
           $window.localStorage.setItem('friends', JSON.stringify(response.data));
 
           vm.dataLoading = false;
+          $scope.totalItems = $rootScope.friends.length;
           this.getGoogleMap();
           // $rootScope.loggedIn = true;
           $location.path('/dashboard');
