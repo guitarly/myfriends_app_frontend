@@ -2,7 +2,8 @@
   'use strict';
 
   // const app = angular.module('Myfriends_App', ['ngRoute', 'ngCookies']);
-  angular
+  // .module('Myfriends_App', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
+angular
     .module('Myfriends_App', ['ngRoute', 'ngCookies','ui.bootstrap'])
     .config(config)
     .run(run)
@@ -11,7 +12,7 @@
         start = 0 + start;
         return data.slice(start);
       };
-    });;
+    });
 
 
   // ROUTES CONFIGURATION

@@ -1,8 +1,7 @@
 (function() {
   'use strict';
 
-  angular
-    .module('Myfriends_App')
+  angular.module('Myfriends_App')
     .controller('LoginController', LoginController);
 
   LoginController.$inject = ['$http', '$scope', '$location', '$rootScope', '$window'];
@@ -14,6 +13,7 @@
     this.url = 'https://meandfriends.herokuapp.com';
     // $rootScope.currentUser = {};
     var vm = this;
+    console.log("login controller");
 
 
     // Login
@@ -80,9 +80,11 @@
         url: this.url + '/users',
         data: this.registerFormData
       }).then(function(result) {
+        console.log(result);
 
         if (result.data.error) {
           $rootScope.error_msg = result.data.error;
+
           vm.dataLoading = false;
         } else {
           vm.dataLoading = false;

@@ -14,7 +14,7 @@
 
     this.url = 'https://meandfriends.herokuapp.com';
     var vm = this;
-    $scope.pageSize = 1;
+
     $scope.currentPage = 1
     $scope.itemsPerPage = 8
     $scope.totalItems = $rootScope.friends.length;
