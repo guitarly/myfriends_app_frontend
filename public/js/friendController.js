@@ -100,6 +100,7 @@
           $window.localStorage.setItem('friends', JSON.stringify(response.data));
 
           vm.dataLoading = false;
+          $scope.reloadRoute();
           this.getGoogleMap();
           // $rootScope.loggedIn = true;
           $location.path('/dashboard');
